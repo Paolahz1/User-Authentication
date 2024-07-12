@@ -1,0 +1,107 @@
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: rgb(238, 243, 243);
+    justify-content: center;
+    align-items: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    position: relative;
+    font-size: 17px;
+}
+
+video{
+    position:absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+}
+
+
+.container{
+    z-index: 2;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: whitesmoke;
+    box-shadow: 1px 1px 10px rgb(197, 195, 195);
+    padding: 5px 6px;
+    box-sizing: border-box;
+
+}
+
+.container:nth-of-type(1){
+    margin-top: 10px;
+    width: 18vw;
+    height: auto;
+
+}
+.container:nth-of-type(2){
+    margin-top: 5px;
+    width: 18vw;
+    height: auto;
+
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.title{
+    text-align: center;
+    font-weight: bold;
+}
+
+label {
+    font-size: 13px;
+    margin: 5px;
+    box-sizing: border-box;
+}
+
+input {
+    width: 100%; 
+    border: 1px solid #ccccccd0;
+    border-radius: 3px;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+
+.button {
+    background-color: rgb(33, 153, 33);
+    color: aliceblue;
+    border-radius: 3px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    height: 25px;
+    font-size: 13px;
+    border: 1px  rgb(33, 153, 33);
+
+}
+
+.button:hover{
+    box-shadow: 0px 1px 3px 0px black;
+
+}
+
+@media screen and (max-width: 800px){
+
+
+    .container:nth-of-type(1){
+        width: 50%;
+        height: auto;
+    }
+    .container:nth-of-type(2){
+        margin-top: 5px;
+        width: 50%;
+        height: auto;
+        
+    }
+
+}
