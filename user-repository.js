@@ -13,7 +13,6 @@ const User = Schema('User', {
 
 export class UserRepository {
   static async create ({ username, password }) {
-
     Validations.username(username)
     Validations.password(password)
     // 2. Asegurarse que el username NO EXISTE
@@ -27,7 +26,7 @@ export class UserRepository {
     User.create({
       _id: id,
       username,
-      password : hashedPassword
+      password: hashedPassword
     }).save()
 
     return id
@@ -38,26 +37,25 @@ export class UserRepository {
     Validations.password(password)
     const user = User.findOne({ username })
     if (!user) throw new Error('User does not exist')
-    
-    const isValid = bcrypt.compareSync( password, user.password) //Este compareSync va a comparar los dos encriptados
+
+    const isValid = bcrypt.compareSync(password, user.password) // Este compareSync va a comparar los dos encriptados
     if (!isValid) throw new Error('password is invalid')
-    
-    const {  _id, password: _, ...publicUser } = user
-    
+
+    const { password: _, ...publicUser } = user
+
     return publicUser
   }
 }
 
 class Validations {
-  static username (username){
+  static username (username) {
     // 1. Validaciones de username
     if (typeof username !== 'string') throw new Error('username must be a string')
     if (username.length < 3) throw new Error('username must be at least 3 characters long')
   }
 
-  static password(password){
+  static password (password) {
     if (typeof password !== 'string') throw new Error('Password must be a string')
     if (password.length < 6) throw new Error('password must be at least 6 characters long')
-  
   }
 }
